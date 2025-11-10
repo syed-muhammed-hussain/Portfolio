@@ -916,7 +916,7 @@ const Portfolio = () => {
                 <Linkedin className="w-6 h-6 text-pink-500" />
               </a>
               <a 
-                href="#"
+                href="linedin.in/syed-muhammad-hussain"
                 className={`w-14 h-14 rounded-xl ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100'} flex items-center justify-center transition-all hover:scale-110 shadow-lg border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
               >
                 <Github className="w-6 h-6 text-orange-500" />
