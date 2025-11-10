@@ -18,7 +18,7 @@ const Portfolio = () => {
   const [currentStat, setCurrentStat] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState({});
+  const [_isVisible, _setIsVisible] = useState(false);
   const heroRef = useRef(null);
 
   const projects = [
