@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, Moon, Sun, Send, X, Menu, ChevronDown, Github, Linkedin, Mail, Zap, Bot, Workflow, MessageSquare, ExternalLink, TrendingUp, Users, Clock, Target, Award, Sparkles, ArrowRight, Play, Pause, Download } from 'lucide-react';
+import { Search, Moon, Sun, X, Menu, ChevronDown, Github, Linkedin, Mail, Zap, Workflow, MessageSquare, ExternalLink, TrendingUp, Users, Clock, Target, Award, Sparkles, ArrowRight, Play, Pause, Download, CheckCircle, Briefcase, Code2 } from 'lucide-react';
 
 const Portfolio = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -7,18 +7,11 @@ const Portfolio = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [chatOpen, setChatOpen] = useState(false);
-  const [chatMessages, setChatMessages] = useState([
-    { type: 'bot', text: 'Hi! 👋 I\'m an AI assistant powered by GPT-4. Ask me anything about Hussain\'s automation projects, technical skills, or experience!' }
-  ]);
-  const [chatInput, setChatInput] = useState('');
-  const [isTyping, setIsTyping] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [autoPlayStats, setAutoPlayStats] = useState(true);
   const [currentStat, setCurrentStat] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [_isVisible, _setIsVisible] = useState(false);
   const heroRef = useRef(null);
 
   const projects = [
@@ -65,7 +58,7 @@ const Portfolio = () => {
       impact: 'Automated customer support and lead qualification across multiple channels, providing 24/7 availability with human-like interactions.',
       gradient: 'from-green-500 to-emerald-500',
       icon: <MessageSquare className="w-6 h-6" />,
-      demo: 'Try the chatbot in bottom-right!',
+      demo: 'Demo available on request',
       timeline: '4 months',
       challenges: 'Platform API differences, context preservation, natural language understanding',
       results: ['70% reduction in support tickets', '95% customer satisfaction', '24/7 availability']
@@ -80,7 +73,7 @@ const Portfolio = () => {
       metrics: ['50+ articles/month', '100% SEO optimized', 'Fully automated', '3x faster than manual'],
       impact: 'Eliminated content bottleneck while maintaining quality, enabling consistent publishing schedule and improved organic traffic.',
       gradient: 'from-orange-500 to-red-500',
-      icon: <Bot className="w-6 h-6" />,
+      icon: <Code2 className="w-6 h-6" />,
       demo: 'Sample articles available',
       timeline: '2.5 months',
       challenges: 'Content quality consistency, SEO optimization, image-text alignment',
@@ -112,7 +105,7 @@ const Portfolio = () => {
       metrics: ['Multi-platform', '100+ posts/week', 'Smart scheduling', '3x engagement ↑'],
       impact: 'Enabled consistent social media presence across all platforms with data-driven optimization and significantly improved engagement metrics.',
       gradient: 'from-pink-500 to-purple-500',
-      icon: <Workflow className="w-6 h-6" />,
+      icon: <Briefcase className="w-6 h-6" />,
       demo: 'Dashboard walkthrough available',
       timeline: '3 months',
       challenges: 'Platform API limitations, content optimization, timing algorithms',
@@ -176,44 +169,6 @@ const Portfolio = () => {
     return matchesSearch && matchesCategory;
   });
 
-  const handleChatSubmit = () => {
-    if (!chatInput.trim()) return;
-
-    setChatMessages([...chatMessages, { type: 'user', text: chatInput }]);
-    const userMessage = chatInput.toLowerCase();
-    setChatInput('');
-    setIsTyping(true);
-
-    setTimeout(() => {
-      let response = '';
-      
-      if (userMessage.includes('upwork')) {
-        response = '🚀 The Upwork automation is my flagship project! It generates 20+ high-quality proposals daily with a 60% success rate (up from 40%). The system uses GPT-4 for contextual proposal writing and Deepseek for quality optimization. It monitors jobs 24/7, filters based on budget/skills/location, and delivers complete proposals with client question responses via Slack. This transformed our business development from a full-time manual process to a fully automated system!';
-      } else if (userMessage.includes('linkedin')) {
-        response = '💼 The LinkedIn Intelligence System is a complete lead generation platform! It scrapes 200+ profiles weekly, sends personalized campaigns, and handles auto-replies using Sales Navigator. Built with a custom HTML/CSS/JS frontend and PostgreSQL backend. The system achieves 85% engagement rates and includes A/B testing, relationship tracking, and intelligent follow-up sequences.';
-      } else if (userMessage.includes('chatbot') || userMessage.includes('chat')) {
-        response = '🤖 I\'ve built enterprise AI chatbots for WhatsApp, Instagram, and LinkedIn! They handle 1000+ monthly interactions with 85% resolution rate. Features include conversation memory, sentiment analysis, multi-language support, and seamless human handoff. The unified architecture shares intelligence across platforms while adapting to each platform\'s unique capabilities.';
-      } else if (userMessage.includes('content') || userMessage.includes('article')) {
-        response = '✍️ The Content Generation Pipeline is incredibly powerful! It produces 50+ SEO-optimized articles monthly using Perplexity for research, GPT-4 for writing, and DALL-E for images. Everything publishes automatically to WordPress. The system maintains brand voice consistency, includes A/B testing for headlines, and has increased organic traffic by 200%!';
-      } else if (userMessage.includes('skill') || userMessage.includes('tech')) {
-        response = '💻 My core expertise includes: n8n (95% - expert level workflow design), OpenAI GPT-4 (90% - advanced prompt engineering), JavaScript/Python (85%/80% - full-stack development), PostgreSQL (75% - database design), and API Integration (90% - complex integrations). I specialize in building scalable automation architectures that deliver measurable business results.';
-      } else if (userMessage.includes('contact') || userMessage.includes('hire') || userMessage.includes('work')) {
-        response = '📧 I\'d love to discuss your automation needs! Reach out at muhammedhussain1214@gmail.com or call 0303-6324000. I\'m based in Bahawalpur, Pakistan and available for remote automation projects. Let\'s transform your business processes with intelligent AI automation!';
-      } else if (userMessage.includes('experience') || userMessage.includes('background')) {
-        response = '👨‍💻 I\'m an Automation Engineer at Codecubics since May 2023, where I lead a team of 5 specialists. I\'ve deployed 15+ production AI systems, saving clients 100+ hours weekly. Graduated from Islamia University Bahawalpur with 3.67 CGPA in Cyber Security. I combine security knowledge with AI expertise to build robust, scalable automation solutions.';
-      } else if (userMessage.includes('cost') || userMessage.includes('price') || userMessage.includes('rate')) {
-        response = '💰 For project rates and custom automation solutions, please email me at muhammedhussain1214@gmail.com. I offer flexible engagement models including project-based, retainer, and consulting. Each automation system is designed to deliver ROI through time savings, efficiency gains, and process improvements.';
-      } else if (userMessage.includes('time') || userMessage.includes('how long')) {
-        response = '⏱️ Project timelines vary based on complexity: Simple automations (1-2 weeks), Medium complexity like chatbots (1-2 months), Complex systems like the Upwork automation (2-3 months). I prioritize rapid prototyping to show value early, then iterate based on feedback. Most clients see ROI within the first month of deployment!';
-      } else {
-        response = '👋 I can help you learn about:\n• 🚀 Upwork Automation (20+ proposals/day)\n• 💼 LinkedIn System (lead generation)\n• 🤖 AI Chatbots (multi-platform)\n• ✍️ Content Pipeline (50+ articles/month)\n• 💻 Technical Skills & Experience\n• 📧 Contact & Hiring\n\nWhat would you like to know more about?';
-      }
-
-      setChatMessages(prev => [...prev, { type: 'bot', text: response }]);
-      setIsTyping(false);
-    }, 1200 + Math.random() * 800);
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'projects', 'skills', 'testimonials', 'contact'];
@@ -259,71 +214,78 @@ const Portfolio = () => {
   };
 
   const ParallaxBackground = () => (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden opacity-40">
       <div 
-        className="absolute w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
+        className="absolute w-[600px] h-[600px] bg-purple-500/20 rounded-full blur-3xl"
         style={{
-          left: `${mousePosition.x / 20}px`,
-          top: `${mousePosition.y / 20}px`,
+          left: `${mousePosition.x / 15}px`,
+          top: `${mousePosition.y / 15}px`,
           transition: 'all 0.3s ease-out'
         }}
       />
       <div 
-        className="absolute w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"
+        className="absolute w-[600px] h-[600px] bg-pink-500/20 rounded-full blur-3xl"
         style={{
-          right: `${mousePosition.x / 30}px`,
-          bottom: `${mousePosition.y / 30}px`,
+          right: `${mousePosition.x / 25}px`,
+          bottom: `${mousePosition.y / 25}px`,
           transition: 'all 0.5s ease-out'
+        }}
+      />
+      <div 
+        className="absolute w-[400px] h-[400px] bg-orange-500/10 rounded-full blur-3xl top-1/2 left-1/2"
+        style={{
+          transform: `translate(-50%, -50%) translate(${mousePosition.x / 40}px, ${mousePosition.y / 40}px)`,
+          transition: 'all 0.7s ease-out'
         }}
       />
     </div>
   );
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'} relative`}>
+    <div className={`min-h-screen transition-colors duration-500 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'} relative overflow-x-hidden`}>
       <ParallaxBackground />
       
       {/* Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-gray-800">
+      <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-transparent">
         <div 
-          className="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 transition-all duration-300"
+          className="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 transition-all duration-300 shadow-lg shadow-purple-500/50"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
       {/* Navigation */}
-      <nav className={`fixed w-full z-40 transition-all duration-300 ${darkMode ? 'bg-gray-900/80 border-gray-800' : 'bg-white/80 border-gray-200'} backdrop-blur-xl border-b`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <div className="relative">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center font-bold text-white shadow-lg">
+      <nav className={`fixed w-full z-40 transition-all duration-300 ${darkMode ? 'bg-gray-900/90 border-gray-800' : 'bg-white/90 border-gray-200'} backdrop-blur-xl border-b`}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            <div className="flex items-center space-x-4">
+              <div className="relative group">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center font-bold text-white shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
                   SH
                 </div>
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-gray-900 animate-pulse" />
+                <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-gray-900 animate-pulse" />
               </div>
               <div>
-                <span className="text-lg font-bold">Syed Hussain</span>
-                <p className="text-xs text-gray-500">Automation Engineer</p>
+                <span className="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Syed Hussain</span>
+                <p className={`text-xs font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Automation Engineer</p>
               </div>
             </div>
 
-            <div className="hidden md:flex items-center space-x-6">
+            <div className="hidden md:flex items-center space-x-8">
               {['home', 'projects', 'skills', 'testimonials', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`capitalize transition-all relative ${activeSection === section ? 'text-purple-500 font-semibold' : darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
+                  className={`capitalize transition-all relative font-medium ${activeSection === section ? 'text-purple-500 font-semibold' : darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
                 >
                   {section}
                   {activeSection === section && (
-                    <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500" />
+                    <div className="absolute -bottom-8 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg shadow-purple-500/50" />
                   )}
                 </button>
               ))}
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className={`p-2 rounded-lg ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-200 hover:bg-gray-300'} transition-all`}
+                className={`p-3 rounded-xl ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-200 hover:bg-gray-300'} transition-all shadow-lg hover:shadow-xl hover:scale-105`}
               >
                 {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
@@ -331,21 +293,21 @@ const Portfolio = () => {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg"
+              className="md:hidden p-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-6 h-6 text-white" />
             </button>
           </div>
         </div>
 
         {mobileMenuOpen && (
-          <div className={`md:hidden ${darkMode ? 'bg-gray-800' : 'bg-white'} border-t ${darkMode ? 'border-gray-700' : 'border-gray-200'} shadow-lg`}>
-            <div className="px-4 py-2 space-y-1">
+          <div className={`md:hidden ${darkMode ? 'bg-gray-800' : 'bg-white'} border-t ${darkMode ? 'border-gray-700' : 'border-gray-200'} shadow-2xl`}>
+            <div className="px-6 py-4 space-y-2">
               {['home', 'projects', 'skills', 'testimonials', 'contact'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`block w-full text-left px-4 py-3 rounded-lg capitalize ${activeSection === section ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white' : darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
+                  className={`block w-full text-left px-5 py-3 rounded-xl capitalize font-medium ${activeSection === section ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg' : darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
                 >
                   {section}
                 </button>
@@ -356,32 +318,32 @@ const Portfolio = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center pt-16 px-4 relative" ref={heroRef}>
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <div className="mb-8 inline-block">
+      <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-6 relative" ref={heroRef}>
+        <div className="max-w-7xl mx-auto text-center relative z-10 py-20">
+          <div className="mb-12 inline-block">
             <div className="relative">
-              <div className="w-40 h-40 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center text-6xl font-bold shadow-2xl animate-pulse">
+              <div className="w-48 h-48 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center text-7xl font-bold shadow-2xl">
                 SH
               </div>
-              <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full border-4 border-gray-900 flex items-center justify-center shadow-lg">
-                <Sparkles className="w-8 h-8 text-white animate-spin" style={{ animationDuration: '3s' }} />
+              <div className="absolute -bottom-3 -right-3 w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full border-4 border-gray-900 flex items-center justify-center shadow-xl">
+                <Sparkles className="w-10 h-10 text-white animate-spin" style={{ animationDuration: '3s' }} />
               </div>
             </div>
           </div>
 
-          <div className="mb-4">
-            <span className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${darkMode ? 'bg-purple-500/20 text-purple-300' : 'bg-purple-100 text-purple-700'}`}>
+          <div className="mb-6">
+            <span className={`inline-block px-6 py-3 rounded-full text-sm font-bold ${darkMode ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-purple-100 text-purple-700 border border-purple-200'} shadow-lg`}>
               ✨ Available for Automation Projects
             </span>
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-8 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent leading-tight tracking-tight">
             AI Automation
             <br />
-            <span className="text-5xl md:text-7xl">Engineer</span>
+            <span className="text-5xl md:text-7xl lg:text-8xl">Engineer</span>
           </h1>
           
-          <p className={`text-xl md:text-2xl mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}>
+          <p className={`text-xl md:text-2xl lg:text-3xl mb-12 ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-5xl mx-auto leading-relaxed font-light`}>
             Transforming business operations with intelligent AI-powered systems that deliver 
             <span className="text-purple-500 font-bold"> 60% efficiency improvements</span>, process 
             <span className="text-pink-500 font-bold"> 1000+ daily operations</span>, and save 
@@ -389,111 +351,114 @@ const Portfolio = () => {
           </p>
 
           {/* Rotating Stats */}
-          <div className={`mb-12 max-w-3xl mx-auto ${darkMode ? 'bg-gray-800/50' : 'bg-white/50'} backdrop-blur-lg rounded-2xl p-8 shadow-xl border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold">Live Impact Metrics</h3>
+          <div className={`mb-16 max-w-4xl mx-auto ${darkMode ? 'bg-gray-800/70' : 'bg-white/70'} backdrop-blur-xl rounded-3xl p-10 shadow-2xl border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-bold flex items-center gap-3">
+                <TrendingUp className="w-6 h-6 text-purple-500" />
+                Live Impact Metrics
+              </h3>
               <button 
                 onClick={() => setAutoPlayStats(!autoPlayStats)}
-                className="p-2 rounded-lg hover:bg-gray-700 transition-colors"
+                className={`p-3 rounded-xl ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'} transition-all`}
               >
-                {autoPlayStats ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+                {autoPlayStats ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
               </button>
             </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+            <div className="text-center py-8">
+              <div className="text-6xl md:text-7xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
                 {stats[currentStat].value}
               </div>
-              <div className="text-xl font-semibold mb-1">{stats[currentStat].label}</div>
-              <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{stats[currentStat].sublabel}</div>
+              <div className="text-2xl font-bold mb-2">{stats[currentStat].label}</div>
+              <div className={`text-base ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{stats[currentStat].sublabel}</div>
             </div>
-            <div className="flex justify-center gap-2 mt-4">
+            <div className="flex justify-center gap-3 mt-8">
               {stats.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrentStat(i)}
-                  className={`h-2 rounded-full transition-all ${i === currentStat ? 'w-8 bg-gradient-to-r from-purple-500 to-pink-500' : 'w-2 bg-gray-600'}`}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${i === currentStat ? 'w-12 bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg' : 'w-2.5 bg-gray-600'}`}
                 />
               ))}
             </div>
           </div>
 
           {/* Achievement Badges */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 max-w-6xl mx-auto">
             {achievements.map((achievement, i) => (
               <div 
                 key={i}
-                className={`${darkMode ? 'bg-gray-800/50' : 'bg-white/50'} backdrop-blur-lg rounded-xl p-4 hover:scale-105 transition-all border ${darkMode ? 'border-gray-700' : 'border-gray-200'} shadow-lg`}
+                className={`${darkMode ? 'bg-gray-800/70' : 'bg-white/70'} backdrop-blur-xl rounded-2xl p-6 hover:scale-105 transition-all duration-300 border ${darkMode ? 'border-gray-700' : 'border-gray-200'} shadow-xl hover:shadow-2xl group`}
               >
-                <div className="text-purple-500 mb-2 flex justify-center">{achievement.icon}</div>
-                <div className="text-lg font-bold mb-1">{achievement.title}</div>
-                <div className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{achievement.description}</div>
+                <div className="text-purple-500 mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">{achievement.icon}</div>
+                <div className="text-xl font-bold mb-2">{achievement.title}</div>
+                <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{achievement.description}</div>
               </div>
             ))}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-6">
             <button
               onClick={() => scrollToSection('projects')}
-              className="group px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all flex items-center gap-2"
+              className="group px-10 py-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-xl"
             >
               Explore Projects
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className={`px-8 py-4 rounded-xl font-semibold border-2 ${darkMode ? 'border-purple-500 hover:bg-purple-500/10' : 'border-purple-600 hover:bg-purple-50'} transition-all`}
+              className={`px-10 py-5 rounded-2xl font-bold text-lg border-2 ${darkMode ? 'border-purple-500 hover:bg-purple-500/10' : 'border-purple-600 hover:bg-purple-50'} transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105`}
             >
               Get In Touch
             </button>
             <button
               onClick={() => window.open('mailto:muhammedhussain1214@gmail.com')}
-              className={`px-8 py-4 rounded-xl font-semibold ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-200 hover:bg-gray-300'} transition-all flex items-center gap-2`}
+              className={`px-10 py-5 rounded-2xl font-bold text-lg ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-200 hover:bg-gray-300'} transition-all duration-300 flex items-center gap-3 shadow-xl hover:shadow-2xl hover:scale-105`}
             >
-              <Download className="w-5 h-5" />
+              <Download className="w-6 h-6" />
               Download CV
             </button>
           </div>
 
-          <div className="mt-16 animate-bounce">
-            <ChevronDown className="w-8 h-8 mx-auto opacity-50" />
+          <div className="mt-20">
+            <ChevronDown className="w-10 h-10 mx-auto opacity-50 animate-bounce" />
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 relative z-10">
+      <section id="projects" className="py-32 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <span className={`inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4 ${darkMode ? 'bg-purple-500/20 text-purple-300' : 'bg-purple-100 text-purple-700'}`}>
+          <div className="text-center mb-20">
+            <span className={`inline-block px-6 py-3 rounded-full text-sm font-bold mb-6 ${darkMode ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-purple-100 text-purple-700 border border-purple-200'} shadow-lg`}>
               💼 Portfolio Showcase
             </span>
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">
+            <h2 className="text-5xl md:text-7xl font-black mb-6">
               Featured <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Projects</span>
             </h2>
-            <p className={`text-lg ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-3xl mx-auto`}>
+            <p className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}>
               AI-powered automation systems delivering measurable business impact and transforming operations at scale
             </p>
           </div>
 
           {/* Search and Filter */}
-          <div className="mb-12 space-y-4">
-            <div className="relative max-w-2xl mx-auto">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+          <div className="mb-16 space-y-6">
+            <div className="relative max-w-3xl mx-auto">
+              <Search className="absolute left-6 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search projects, technologies, features..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className={`w-full pl-12 pr-4 py-4 rounded-xl ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'} border ${darkMode ? 'border-gray-700' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-lg`}
+                className={`w-full pl-16 pr-6 py-5 rounded-2xl text-lg ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'} border ${darkMode ? 'border-gray-700' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-xl`}
               />
             </div>
 
-            <div className="flex justify-center flex-wrap gap-3">
+            <div className="flex justify-center flex-wrap gap-4">
               {categories.map(cat => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-6 py-3 rounded-xl capitalize transition-all font-semibold ${selectedCategory === cat ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg scale-105' : darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100 border border-gray-300'}`}
+                  className={`px-8 py-4 rounded-2xl capitalize transition-all font-bold text-base ${selectedCategory === cat ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-xl scale-105' : darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100 border border-gray-300'} shadow-lg hover:shadow-xl hover:scale-105`}
                 >
                   {cat === 'all' ? '🎯 All Projects' : cat}
                 </button>
@@ -502,59 +467,59 @@ const Portfolio = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
-                className={`group cursor-pointer ${darkMode ? 'bg-gray-800/50' : 'bg-white'} backdrop-blur-lg rounded-2xl p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border ${darkMode ? 'border-gray-700' : 'border-gray-200'} flex flex-col`}
+                className={`group cursor-pointer ${darkMode ? 'bg-gray-800/70' : 'bg-white/70'} backdrop-blur-xl rounded-3xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 border ${darkMode ? 'border-gray-700' : 'border-gray-200'} flex flex-col`}
               >
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${project.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
                   {project.icon}
                 </div>
 
-                <h3 className="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">{project.title}</h3>
-                <p className={`text-sm font-semibold ${darkMode ? 'text-purple-400' : 'text-purple-600'} mb-3`}>{project.category}</p>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-4 text-sm`}>{project.description}</p>
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-purple-400 transition-colors">{project.title}</h3>
+                <p className={`text-sm font-bold ${darkMode ? 'text-purple-400' : 'text-purple-600'} mb-4 uppercase tracking-wider`}>{project.category}</p>
+                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-6 text-base leading-relaxed`}>{project.description}</p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.slice(0, 3).map(tech => (
-                    <span key={tech} className={`text-xs px-2 py-1 rounded-full font-semibold ${darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'}`}>
+                    <span key={tech} className={`text-xs px-3 py-2 rounded-xl font-bold ${darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'}`}>
                       {tech}
                     </span>
                   ))}
                   {project.tech.length > 3 && (
-                    <span className={`text-xs px-2 py-1 rounded-full font-semibold ${darkMode ? 'bg-gray-700 text-purple-400' : 'bg-purple-100 text-purple-700'}`}>
+                    <span className={`text-xs px-3 py-2 rounded-xl font-bold ${darkMode ? 'bg-gray-700 text-purple-400' : 'bg-purple-100 text-purple-700'}`}>
                       +{project.tech.length - 3}
                     </span>
                   )}
                 </div>
 
-                <div className="space-y-2 mb-4 flex-grow">
+                <div className="space-y-3 mb-6 flex-grow">
                   {project.metrics.slice(0, 2).map(metric => (
-                    <div key={metric} className="flex items-center space-x-2">
-                      <Zap className="w-4 h-4 text-purple-500 flex-shrink-0" />
-                      <span className="text-sm font-medium">{metric}</span>
+                    <div key={metric} className="flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                      <span className="text-sm font-semibold">{metric}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-gray-700 mt-auto">
-                  <span className="text-sm text-purple-400 font-semibold">Click for details</span>
-                  <ExternalLink className="w-4 h-4 text-purple-400 group-hover:translate-x-1 transition-transform" />
+                <div className={`flex items-center justify-between pt-6 border-t ${darkMode ? 'border-gray-700' : 'border-gray-300'} mt-auto`}>
+                  <span className="text-sm text-purple-400 font-bold">View Details</span>
+                  <ExternalLink className="w-5 h-5 text-purple-400 group-hover:translate-x-2 transition-transform duration-300" />
                 </div>
               </div>
             ))}
           </div>
 
           {filteredProjects.length === 0 && (
-            <div className="text-center py-20">
-              <div className={`inline-block p-8 rounded-2xl ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg`}>
-                <Search className="w-16 h-16 mx-auto mb-4 text-gray-500" />
-                <p className={`text-lg ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>No projects found matching your criteria.</p>
+            <div className="text-center py-24">
+              <div className={`inline-block p-12 rounded-3xl ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-2xl`}>
+                <Search className="w-20 h-20 mx-auto mb-6 text-gray-500" />
+                <p className={`text-xl font-bold mb-4 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>No projects found matching your criteria.</p>
                 <button 
                   onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}
-                  className="mt-4 px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:shadow-lg transition-all"
+                  className="mt-6 px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl font-bold hover:shadow-2xl transition-all hover:scale-105"
                 >
                   Clear Filters
                 </button>
@@ -566,46 +531,46 @@ const Portfolio = () => {
 
       {/* Project Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedProject(null)}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedProject(null)}>
           <div 
-            className={`max-w-4xl w-full max-h-[90vh] overflow-y-auto ${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-2xl shadow-2xl`}
+            className={`max-w-5xl w-full max-h-[90vh] overflow-y-auto ${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-3xl shadow-2xl`}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className={`sticky top-0 ${darkMode ? 'bg-gray-800' : 'bg-white'} border-b ${darkMode ? 'border-gray-700' : 'border-gray-200'} p-6 flex justify-between items-center z-10`}>
-              <div className="flex items-center gap-4">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${selectedProject.gradient} flex items-center justify-center shadow-lg`}>
+            <div className={`sticky top-0 ${darkMode ? 'bg-gray-800' : 'bg-white'} border-b ${darkMode ? 'border-gray-700' : 'border-gray-200'} p-8 flex justify-between items-center z-10`}>
+              <div className="flex items-center gap-6">
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${selectedProject.gradient} flex items-center justify-center shadow-xl`}>
                   {selectedProject.icon}
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">{selectedProject.title}</h3>
-                  <p className={`text-sm ${darkMode ? 'text-purple-400' : 'text-purple-600'}`}>{selectedProject.category}</p>
+                  <h3 className="text-3xl font-bold">{selectedProject.title}</h3>
+                  <p className={`text-base font-bold ${darkMode ? 'text-purple-400' : 'text-purple-600'} uppercase tracking-wider`}>{selectedProject.category}</p>
                 </div>
               </div>
               <button 
                 onClick={() => setSelectedProject(null)}
-                className={`p-2 rounded-lg ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
+                className={`p-3 rounded-2xl ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'} transition-all`}
               >
-                <X className="w-6 h-6" />
+                <X className="w-7 h-7" />
               </button>
             </div>
 
-            <div className="p-6 space-y-6">
+            <div className="p-8 space-y-8">
               <div>
-                <h4 className="text-lg font-bold mb-2 flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-purple-500" />
+                <h4 className="text-2xl font-bold mb-4 flex items-center gap-3">
+                  <Sparkles className="w-6 h-6 text-purple-500" />
                   Project Overview
                 </h4>
-                <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>{selectedProject.fullDescription}</p>
+                <p className={`text-lg leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>{selectedProject.fullDescription}</p>
               </div>
 
               <div>
-                <h4 className="text-lg font-bold mb-3">🚀 Key Metrics</h4>
-                <div className="grid grid-cols-2 gap-3">
+                <h4 className="text-2xl font-bold mb-4">🚀 Key Metrics</h4>
+                <div className="grid grid-cols-2 gap-4">
                   {selectedProject.metrics.map(metric => (
-                    <div key={metric} className={`${darkMode ? 'bg-gray-700/50' : 'bg-gray-100'} rounded-lg p-4`}>
-                      <div className="flex items-center gap-2">
-                        <TrendingUp className="w-5 h-5 text-purple-500" />
-                        <span className="font-semibold">{metric}</span>
+                    <div key={metric} className={`${darkMode ? 'bg-gray-700/50' : 'bg-gray-100'} rounded-2xl p-6`}>
+                      <div className="flex items-center gap-3">
+                        <TrendingUp className="w-6 h-6 text-purple-500" />
+                        <span className="font-bold text-lg">{metric}</span>
                       </div>
                     </div>
                   ))}
@@ -613,10 +578,10 @@ const Portfolio = () => {
               </div>
 
               <div>
-                <h4 className="text-lg font-bold mb-3">💻 Technology Stack</h4>
-                <div className="flex flex-wrap gap-2">
+                <h4 className="text-2xl font-bold mb-4">💻 Technology Stack</h4>
+                <div className="flex flex-wrap gap-3">
                   {selectedProject.tech.map(tech => (
-                    <span key={tech} className={`px-4 py-2 rounded-lg font-semibold ${darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'}`}>
+                    <span key={tech} className={`px-6 py-3 rounded-2xl font-bold text-base ${darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'}`}>
                       {tech}
                     </span>
                   ))}
@@ -624,32 +589,32 @@ const Portfolio = () => {
               </div>
 
               <div>
-                <h4 className="text-lg font-bold mb-2">📊 Business Impact</h4>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'} mb-3`}>{selectedProject.impact}</p>
-                <div className="space-y-2">
+                <h4 className="text-2xl font-bold mb-4">📊 Business Impact</h4>
+                <p className={`text-lg leading-relaxed mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>{selectedProject.impact}</p>
+                <div className="space-y-3">
                   {selectedProject.results.map((result, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500" />
-                      <span className={darkMode ? 'text-gray-300' : 'text-gray-700'}>{result}</span>
+                    <div key={i} className="flex items-center gap-4">
+                      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500" />
+                      <span className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>{result}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className={`${darkMode ? 'bg-gray-700/50' : 'bg-gray-100'} rounded-lg p-4`}>
-                  <h5 className="font-bold mb-2">⏱️ Timeline</h5>
-                  <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>{selectedProject.timeline}</p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className={`${darkMode ? 'bg-gray-700/50' : 'bg-gray-100'} rounded-2xl p-6`}>
+                  <h5 className="font-bold text-lg mb-3">⏱️ Timeline</h5>
+                  <p className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>{selectedProject.timeline}</p>
                 </div>
-                <div className={`${darkMode ? 'bg-gray-700/50' : 'bg-gray-100'} rounded-lg p-4`}>
-                  <h5 className="font-bold mb-2">🎯 Status</h5>
-                  <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>{selectedProject.demo}</p>
+                <div className={`${darkMode ? 'bg-gray-700/50' : 'bg-gray-100'} rounded-2xl p-6`}>
+                  <h5 className="font-bold text-lg mb-3">🎯 Status</h5>
+                  <p className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>{selectedProject.demo}</p>
                 </div>
               </div>
 
               <div>
-                <h4 className="text-lg font-bold mb-2">⚡ Challenges Overcome</h4>
-                <p className={darkMode ? 'text-gray-300' : 'text-gray-700'}>{selectedProject.challenges}</p>
+                <h4 className="text-2xl font-bold mb-4">⚡ Challenges Overcome</h4>
+                <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>{selectedProject.challenges}</p>
               </div>
             </div>
           </div>
@@ -657,35 +622,35 @@ const Portfolio = () => {
       )}
 
       {/* Skills Section */}
-      <section id="skills" className={`py-20 px-4 ${darkMode ? 'bg-gray-800/30' : 'bg-gray-100'} relative z-10`}>
+      <section id="skills" className={`py-32 px-6 ${darkMode ? 'bg-gray-800/30' : 'bg-gray-100'} relative z-10`}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <span className={`inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4 ${darkMode ? 'bg-purple-500/20 text-purple-300' : 'bg-purple-100 text-purple-700'}`}>
+          <div className="text-center mb-20">
+            <span className={`inline-block px-6 py-3 rounded-full text-sm font-bold mb-6 ${darkMode ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-purple-100 text-purple-700 border border-purple-200'} shadow-lg`}>
               💻 Technical Arsenal
             </span>
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">
+            <h2 className="text-5xl md:text-7xl font-black mb-6">
               Technical <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Expertise</span>
             </h2>
-            <p className={`text-lg ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-3xl mx-auto`}>
+            <p className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}>
               Specialized in AI integration, workflow automation, and building intelligent systems that scale
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {skills.map((skill, index) => (
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {skills.map((skill) => (
               <div 
                 key={skill.name} 
-                className={`${darkMode ? 'bg-gray-800/50' : 'bg-white'} backdrop-blur-lg rounded-xl p-6 hover:shadow-2xl transition-all hover:-translate-y-1 border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
+                className={`${darkMode ? 'bg-gray-800/70' : 'bg-white/70'} backdrop-blur-xl rounded-3xl p-8 hover:shadow-2xl transition-all hover:-translate-y-2 border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
               >
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-xl font-bold">{skill.name}</span>
-                  <span className={`text-sm font-semibold px-3 py-1 rounded-full ${darkMode ? 'bg-purple-500/20 text-purple-300' : 'bg-purple-100 text-purple-700'}`}>
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-2xl font-bold">{skill.name}</span>
+                  <span className={`text-sm font-bold px-4 py-2 rounded-xl ${darkMode ? 'bg-purple-500/20 text-purple-300' : 'bg-purple-100 text-purple-700'}`}>
                     {skill.category}
                   </span>
                 </div>
-                <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-3`}>{skill.description}</p>
-                <div className="flex items-center gap-3">
-                  <div className={`flex-1 h-3 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} rounded-full overflow-hidden`}>
+                <p className={`text-base ${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-5 leading-relaxed`}>{skill.description}</p>
+                <div className="flex items-center gap-4">
+                  <div className={`flex-1 h-4 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} rounded-full overflow-hidden`}>
                     <div
                       className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-1000 relative overflow-hidden"
                       style={{ width: `${skill.level}%` }}
@@ -693,7 +658,7 @@ const Portfolio = () => {
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
                     </div>
                   </div>
-                  <span className="text-lg font-bold text-purple-500">{skill.level}%</span>
+                  <span className="text-2xl font-black text-purple-500 min-w-[60px] text-right">{skill.level}%</span>
                 </div>
               </div>
             ))}
@@ -702,35 +667,35 @@ const Portfolio = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 px-4 relative z-10">
+      <section id="testimonials" className="py-32 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <span className={`inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4 ${darkMode ? 'bg-purple-500/20 text-purple-300' : 'bg-purple-100 text-purple-700'}`}>
+          <div className="text-center mb-20">
+            <span className={`inline-block px-6 py-3 rounded-full text-sm font-bold mb-6 ${darkMode ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-purple-100 text-purple-700 border border-purple-200'} shadow-lg`}>
               ⭐ Client Success Stories
             </span>
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">
+            <h2 className="text-5xl md:text-7xl font-black mb-6">
               What <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Clients Say</span>
             </h2>
-            <p className={`text-lg ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            <p className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} leading-relaxed`}>
               Real results from real automation projects
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, i) => (
               <div
                 key={i}
-                className={`${darkMode ? 'bg-gray-800/50' : 'bg-white'} backdrop-blur-lg rounded-xl p-6 hover:shadow-2xl transition-all border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
+                className={`${darkMode ? 'bg-gray-800/70' : 'bg-white/70'} backdrop-blur-xl rounded-3xl p-8 hover:shadow-2xl transition-all hover:-translate-y-2 border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
               >
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-2 mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <div key={i} className="w-5 h-5 text-yellow-500">⭐</div>
+                    <div key={i} className="w-6 h-6 text-yellow-500">⭐</div>
                   ))}
                 </div>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'} mb-4 italic`}>"{testimonial.text}"</p>
-                <div>
-                  <p className="font-bold">{testimonial.name}</p>
-                  <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{testimonial.role}</p>
+                <p className={`${darkMode ? 'text-gray-300' : 'text-gray-700'} mb-6 italic text-lg leading-relaxed`}>"{testimonial.text}"</p>
+                <div className="pt-6 border-t border-gray-700">
+                  <p className="font-bold text-xl">{testimonial.name}</p>
+                  <p className={`text-base ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{testimonial.role}</p>
                 </div>
               </div>
             ))}
@@ -739,227 +704,145 @@ const Portfolio = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className={`py-20 px-4 ${darkMode ? 'bg-gray-800/30' : 'bg-gray-100'} relative z-10`}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <span className={`inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4 ${darkMode ? 'bg-purple-500/20 text-purple-300' : 'bg-purple-100 text-purple-700'}`}>
+      <section id="contact" className={`py-32 px-6 ${darkMode ? 'bg-gray-800/30' : 'bg-gray-100'} relative z-10`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20">
+            <span className={`inline-block px-6 py-3 rounded-full text-sm font-bold mb-6 ${darkMode ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-purple-100 text-purple-700 border border-purple-200'} shadow-lg`}>
               📧 Get In Touch
             </span>
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">
+            <h2 className="text-5xl md:text-7xl font-black mb-6">
               Let's <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Build Together</span>
             </h2>
-            <p className={`text-lg ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-3xl mx-auto`}>
+            <p className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}>
               Ready to automate your business processes? Let's discuss how AI automation can transform your operations and deliver measurable ROI.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             <a 
               href="mailto:muhammedhussain1214@gmail.com"
-              className={`${darkMode ? 'bg-gray-800/50 hover:bg-gray-700' : 'bg-white hover:bg-gray-50'} backdrop-blur-lg p-8 rounded-xl transition-all hover:shadow-2xl hover:-translate-y-1 border ${darkMode ? 'border-gray-700' : 'border-gray-200'} group`}
+              className={`${darkMode ? 'bg-gray-800/70 hover:bg-gray-700' : 'bg-white/70 hover:bg-gray-50'} backdrop-blur-xl p-10 rounded-3xl transition-all hover:shadow-2xl hover:-translate-y-2 border ${darkMode ? 'border-gray-700' : 'border-gray-200'} group`}
             >
-              <Mail className="w-10 h-10 mx-auto mb-4 text-purple-500 group-hover:scale-110 transition-transform" />
-              <h3 className="font-bold text-xl mb-2">Email</h3>
-              <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} break-words`}>muhammedhussain1214@gmail.com</p>
+              <Mail className="w-12 h-12 mx-auto mb-6 text-purple-500 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="font-bold text-2xl mb-3">Email</h3>
+              <p className={`text-base ${darkMode ? 'text-gray-400' : 'text-gray-600'} break-words`}>muhammedhussain1214@gmail.com</p>
             </a>
 
             <a 
               href="tel:03036324000"
-              className={`${darkMode ? 'bg-gray-800/50 hover:bg-gray-700' : 'bg-white hover:bg-gray-50'} backdrop-blur-lg p-8 rounded-xl transition-all hover:shadow-2xl hover:-translate-y-1 border ${darkMode ? 'border-gray-700' : 'border-gray-200'} group`}
+              className={`${darkMode ? 'bg-gray-800/70 hover:bg-gray-700' : 'bg-white/70 hover:bg-gray-50'} backdrop-blur-xl p-10 rounded-3xl transition-all hover:shadow-2xl hover:-translate-y-2 border ${darkMode ? 'border-gray-700' : 'border-gray-200'} group`}
             >
-              <Linkedin className="w-10 h-10 mx-auto mb-4 text-pink-500 group-hover:scale-110 transition-transform" />
-              <h3 className="font-bold text-xl mb-2">Phone</h3>
-              <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>0303-6324000</p>
+              <Linkedin className="w-12 h-12 mx-auto mb-6 text-pink-500 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="font-bold text-2xl mb-3">Phone</h3>
+              <p className={`text-base ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>0303-6324000</p>
             </a>
 
-            <div className={`${darkMode ? 'bg-gray-800/50' : 'bg-white'} backdrop-blur-lg p-8 rounded-xl border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
-              <Github className="w-10 h-10 mx-auto mb-4 text-orange-500" />
-              <h3 className="font-bold text-xl mb-2">Location</h3>
-              <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Bahawalpur, Pakistan</p>
-              <p className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-500'} mt-1`}>Remote-friendly</p>
+            <div className={`${darkMode ? 'bg-gray-800/70' : 'bg-white/70'} backdrop-blur-xl p-10 rounded-3xl border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
+              <Github className="w-12 h-12 mx-auto mb-6 text-orange-500" />
+              <h3 className="font-bold text-2xl mb-3">Location</h3>
+              <p className={`text-base ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Bahawalpur, Pakistan</p>
+              <p className={`text-sm ${darkMode ? 'text-gray-500' : 'text-gray-500'} mt-2`}>Remote-friendly</p>
             </div>
           </div>
 
-          <div className={`${darkMode ? 'bg-gray-800/50' : 'bg-white'} backdrop-blur-lg rounded-2xl p-8 border ${darkMode ? 'border-gray-700' : 'border-gray-200'} shadow-xl`}>
-            <h3 className="text-3xl font-bold mb-6 text-center">Quick Stats</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className={`${darkMode ? 'bg-gray-800/70' : 'bg-white/70'} backdrop-blur-xl rounded-3xl p-12 border ${darkMode ? 'border-gray-700' : 'border-gray-200'} shadow-2xl`}>
+            <h3 className="text-4xl font-black mb-10 text-center">Quick Stats</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">3.67</div>
-                <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} font-semibold`}>CGPA</div>
-                <div className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>Cyber Security</div>
+                <div className="text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-3">3.67</div>
+                <div className={`text-base font-bold ${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-1`}>CGPA</div>
+                <div className={`text-sm ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>Cyber Security</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent mb-2">2+</div>
-                <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} font-semibold`}>Years</div>
-                <div className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>Professional Experience</div>
+                <div className="text-5xl font-black bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent mb-3">2+</div>
+                <div className={`text-base font-bold ${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-1`}>Years</div>
+                <div className={`text-sm ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>Professional Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent mb-2">15+</div>
-                <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} font-semibold`}>AI Systems</div>
-                <div className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>Production Deployed</div>
+                <div className="text-5xl font-black bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent mb-3">15+</div>
+                <div className={`text-base font-bold ${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-1`}>AI Systems</div>
+                <div className={`text-sm ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>Production Deployed</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-2">5</div>
-                <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} font-semibold`}>Team Members</div>
-                <div className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>Led & Trained</div>
+                <div className="text-5xl font-black bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-3">5</div>
+                <div className={`text-base font-bold ${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-1`}>Team Members</div>
+                <div className={`text-sm ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>Led & Trained</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* AI Chatbot */}
-      {chatOpen && (
-        <div className={`fixed bottom-24 right-4 w-96 h-[500px] ${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-2xl shadow-2xl flex flex-col border-2 ${darkMode ? 'border-purple-500/50' : 'border-purple-300'} z-50`}>
-          <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 p-4 rounded-t-2xl flex justify-between items-center">
-            <div className="flex items-center space-x-3">
-              <div className="relative">
-                <Bot className="w-7 h-7 text-white" />
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse" />
-              </div>
-              <div>
-                <span className="font-bold text-white">AI Assistant</span>
-                <p className="text-xs text-white/80">Powered by GPT-4</p>
-              </div>
-            </div>
-            <button onClick={() => setChatOpen(false)} className="text-white hover:bg-white/20 p-2 rounded-lg transition-colors">
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          <div className="flex-1 overflow-y-auto p-4 space-y-3">
-            {chatMessages.map((msg, i) => (
-              <div key={i} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] p-3 rounded-2xl shadow-lg ${msg.type === 'user' ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white' : darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
-                  <p className="text-sm leading-relaxed whitespace-pre-line">{msg.text}</p>
-                </div>
-              </div>
-            ))}
-            {isTyping && (
-              <div className="flex justify-start">
-                <div className={`p-4 rounded-2xl ${darkMode ? 'bg-gray-700' : 'bg-gray-100'} shadow-lg`}>
-                  <div className="flex space-x-2">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                    <div className="w-2 h-2 bg-pink-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                    <div className="w-2 h-2 bg-orange-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className={`p-4 border-t ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
-            <div className="flex space-x-2">
-              <input
-                type="text"
-                value={chatInput}
-                onChange={(e) => setChatInput(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleChatSubmit()}
-                placeholder="Ask me anything..."
-                className={`flex-1 px-4 py-3 rounded-xl ${darkMode ? 'bg-gray-700 text-white placeholder-gray-400' : 'bg-gray-100 text-gray-900 placeholder-gray-500'} focus:outline-none focus:ring-2 focus:ring-purple-500`}
-              />
-              <button 
-                onClick={handleChatSubmit} 
-                className="bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-xl hover:shadow-lg transition-all hover:scale-105"
-              >
-                <Send className="w-5 h-5 text-white" />
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Chatbot Toggle Button */}
-      <button
-        onClick={() => setChatOpen(!chatOpen)}
-        className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-50 group"
-      >
-        {chatOpen ? (
-          <X className="w-7 h-7 text-white" />
-        ) : (
-          <>
-            <MessageSquare className="w-7 h-7 text-white" />
-            <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-gray-900 animate-pulse" />
-          </>
-        )}
-      </button>
-
       {/* Footer */}
       <footer className={`relative z-10 ${darkMode ? 'bg-gradient-to-b from-gray-900 to-gray-950' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
-        <div className="max-w-7xl mx-auto px-4 py-16">
-          {/* Main Footer Content */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-3 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center font-bold text-white text-2xl shadow-2xl">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-4 mb-8">
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center font-bold text-white text-3xl shadow-2xl">
                 SH
               </div>
             </div>
-            <h3 className="text-3xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h3 className="text-4xl font-black mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               Let's Build Something Amazing
             </h3>
-            <p className={`text-lg ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-2xl mx-auto mb-8`}>
+            <p className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-3xl mx-auto mb-10 leading-relaxed`}>
               Transform your business with intelligent AI automation solutions
             </p>
             
-            {/* Social/Contact Links */}
-            <div className="flex justify-center gap-4 mb-12">
+            <div className="flex justify-center gap-6 mb-16">
               <a 
                 href="mailto:muhammedhussain1214@gmail.com"
-                className={`w-14 h-14 rounded-xl ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100'} flex items-center justify-center transition-all hover:scale-110 shadow-lg border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
+                className={`w-16 h-16 rounded-2xl ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100'} flex items-center justify-center transition-all hover:scale-110 shadow-xl border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
               >
-                <Mail className="w-6 h-6 text-purple-500" />
+                <Mail className="w-7 h-7 text-purple-500" />
               </a>
               <a 
                 href="tel:03036324000"
-                className={`w-14 h-14 rounded-xl ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100'} flex items-center justify-center transition-all hover:scale-110 shadow-lg border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
+                className={`w-16 h-16 rounded-2xl ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100'} flex items-center justify-center transition-all hover:scale-110 shadow-xl border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
               >
-                <Linkedin className="w-6 h-6 text-pink-500" />
+                <Linkedin className="w-7 h-7 text-pink-500" />
               </a>
               <a 
-                href="https://drive.google.com/file/d/1a6aPqPwqnN0Jf9vGidbJ_Ygo1CrVzIiA/view?usp=drivesdk"
-                className={`w-14 h-14 rounded-xl ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100'} flex items-center justify-center transition-all hover:scale-110 shadow-lg border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
+                href="https://github.com/syed-muhammed-hussain"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-16 h-16 rounded-2xl ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100'} flex items-center justify-center transition-all hover:scale-110 shadow-xl border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
               >
-                <Github className="w-6 h-6 text-orange-500" />
+                <Github className="w-7 h-7 text-orange-500" />
               </a>
             </div>
           </div>
 
-          {/* Divider */}
-          <div className={`h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent mb-8`} />
+          <div className={`h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent mb-10`} />
 
-          {/* Bottom Footer */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex flex-col md:flex-row items-center gap-4">
-              <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="flex flex-col md:flex-row items-center gap-6">
+              <p className={`text-base ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                 © 2024 Syed Muhammad Hussain
               </p>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <span className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Available for Projects</span>
+              <div className="flex items-center gap-3">
+                <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
+                <span className={`text-base font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Available for Projects</span>
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
-              <button onClick={() => scrollToSection('home')} className={`${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'} transition-colors`}>
+            <div className="flex flex-wrap items-center justify-center gap-6 text-base">
+              <button onClick={() => scrollToSection('home')} className={`${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'} transition-colors font-medium`}>
                 Home
               </button>
               <span className={darkMode ? 'text-gray-700' : 'text-gray-300'}>•</span>
-              <button onClick={() => scrollToSection('projects')} className={`${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'} transition-colors`}>
+              <button onClick={() => scrollToSection('projects')} className={`${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'} transition-colors font-medium`}>
                 Projects
               </button>
               <span className={darkMode ? 'text-gray-700' : 'text-gray-300'}>•</span>
-              <button onClick={() => scrollToSection('contact')} className={`${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'} transition-colors`}>
+              <button onClick={() => scrollToSection('contact')} className={`${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'} transition-colors font-medium`}>
                 Contact
-              </button>
-              <span className={darkMode ? 'text-gray-700' : 'text-gray-300'}>•</span>
-              <button onClick={() => setChatOpen(true)} className="text-purple-500 hover:text-purple-400 transition-colors font-semibold">
-                AI Chat →
               </button>
             </div>
           </div>
 
-          <div className="mt-8 text-center">
-            <p className={`text-xs ${darkMode ? 'text-gray-600' : 'text-gray-400'}`}>
+          <div className="mt-10 text-center">
+            <p className={`text-sm ${darkMode ? 'text-gray-600' : 'text-gray-400'}`}>
               Built with React + Tailwind CSS • Powered by Innovation
             </p>
           </div>
