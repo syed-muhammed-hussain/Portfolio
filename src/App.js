@@ -24,7 +24,7 @@ const Portfolio = () => {
       tech: ['n8n', 'GPT-4', 'Deepseek', 'Slack API', 'PostgreSQL', 'Node.js'],
       metrics: ['20+ proposals/day', '60% success rate ↑', '100% automated', '0 manual hours'],
       impact: 'Transformed business development from a full-time manual process to a fully automated system, increasing proposal quality and success rates while freeing up team resources.',
-      gradient: 'from-purple-500 to-pink-500',
+      gradient: 'from-teal-500 to-emerald-500',
       icon: <Zap className="w-6 h-6" />,
       demo: 'Available on request',
       timeline: '3 months',
@@ -56,7 +56,7 @@ const Portfolio = () => {
       tech: ['GPT-4', 'n8n', 'Webhooks', 'Vector DB', 'Redis', 'Python'],
       metrics: ['1000+ interactions/month', '85% resolution rate', '3-platform support', '<2s response time'],
       impact: 'Automated customer support and lead qualification across multiple channels, providing 24/7 availability with human-like interactions.',
-      gradient: 'from-green-500 to-emerald-500',
+      gradient: 'from-indigo-500 to-purple-500',
       icon: <MessageSquare className="w-6 h-6" />,
       demo: 'Demo available on request',
       timeline: '4 months',
@@ -72,7 +72,7 @@ const Portfolio = () => {
       tech: ['GPT-4', 'DALL-E 3', 'Perplexity AI', 'WordPress API', 'Python', 'n8n'],
       metrics: ['50+ articles/month', '100% SEO optimized', 'Fully automated', '3x faster than manual'],
       impact: 'Eliminated content bottleneck while maintaining quality, enabling consistent publishing schedule and improved organic traffic.',
-      gradient: 'from-orange-500 to-red-500',
+      gradient: 'from-cyan-500 to-blue-500',
       icon: <Code2 className="w-6 h-6" />,
       demo: 'Sample articles available',
       timeline: '2.5 months',
@@ -88,7 +88,7 @@ const Portfolio = () => {
       tech: ['n8n', 'Google Sheets API', 'GPT-4', 'Airtable', 'Python', 'Chart.js'],
       metrics: ['500+ transactions/month', '99.2% accuracy', 'Real-time reports', '10-currency support'],
       impact: 'Transformed financial management from manual spreadsheet work to intelligent automated tracking with predictive insights.',
-      gradient: 'from-yellow-500 to-orange-500',
+      gradient: 'from-emerald-500 to-teal-500',
       icon: <TrendingUp className="w-6 h-6" />,
       demo: 'Dashboard preview available',
       timeline: '1.5 months',
@@ -104,7 +104,7 @@ const Portfolio = () => {
       tech: ['n8n', 'Platform APIs', 'Make.com', 'GPT-4', 'PostgreSQL', 'React'],
       metrics: ['Multi-platform', '100+ posts/week', 'Smart scheduling', '3x engagement ↑'],
       impact: 'Enabled consistent social media presence across all platforms with data-driven optimization and significantly improved engagement metrics.',
-      gradient: 'from-pink-500 to-purple-500',
+      gradient: 'from-violet-500 to-indigo-500',
       icon: <Briefcase className="w-6 h-6" />,
       demo: 'Dashboard walkthrough available',
       timeline: '3 months',
@@ -248,7 +248,7 @@ const Portfolio = () => {
       {/* Scroll Progress Bar */}
       <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-transparent">
         <div 
-          className="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 transition-all duration-300 shadow-lg shadow-purple-500/50"
+          className="h-full bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 transition-all duration-300 shadow-lg shadow-blue-500/50"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
@@ -259,13 +259,13 @@ const Portfolio = () => {
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-4">
               <div className="relative group">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center font-bold text-white shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 via-cyan-500 to-teal-500 flex items-center justify-center font-bold text-white shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
                   SH
                 </div>
-                <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-gray-900 animate-pulse" />
+                <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-gray-900 animate-pulse" />
               </div>
               <div>
-                <span className="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Syed Hussain</span>
+                <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Syed Hussain</span>
                 <p className={`text-xs font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Automation Engineer</p>
               </div>
             </div>
@@ -275,11 +275,11 @@ const Portfolio = () => {
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`capitalize transition-all relative font-medium ${activeSection === section ? 'text-purple-500 font-semibold' : darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
+                  className={`capitalize transition-all relative font-medium ${activeSection === section ? 'text-blue-500 font-semibold' : darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
                 >
                   {section}
                   {activeSection === section && (
-                    <div className="absolute -bottom-8 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg shadow-purple-500/50" />
+                    <div className="absolute -bottom-8 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/50" />
                   )}
                 </button>
               ))}
@@ -293,7 +293,7 @@ const Portfolio = () => {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg"
+              className="md:hidden p-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg"
             >
               <Menu className="w-6 h-6 text-white" />
             </button>
@@ -307,7 +307,7 @@ const Portfolio = () => {
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`block w-full text-left px-5 py-3 rounded-xl capitalize font-medium ${activeSection === section ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg' : darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
+                  className={`block w-full text-left px-5 py-3 rounded-xl capitalize font-medium ${activeSection === section ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg' : darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
                 >
                   {section}
                 </button>
@@ -322,22 +322,22 @@ const Portfolio = () => {
         <div className="max-w-7xl mx-auto text-center relative z-10 py-20">
           <div className="mb-12 inline-block">
             <div className="relative">
-              <div className="w-48 h-48 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center text-7xl font-bold shadow-2xl">
+              <div className="w-48 h-48 rounded-full bg-gradient-to-br from-blue-500 via-cyan-500 to-teal-500 flex items-center justify-center text-7xl font-bold shadow-2xl">
                 SH
               </div>
-              <div className="absolute -bottom-3 -right-3 w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full border-4 border-gray-900 flex items-center justify-center shadow-xl">
+              <div className="absolute -bottom-3 -right-3 w-20 h-20 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full border-4 border-gray-900 flex items-center justify-center shadow-xl">
                 <Sparkles className="w-10 h-10 text-white animate-spin" style={{ animationDuration: '3s' }} />
               </div>
             </div>
           </div>
 
           <div className="mb-6">
-            <span className={`inline-block px-6 py-3 rounded-full text-sm font-bold ${darkMode ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-purple-100 text-purple-700 border border-purple-200'} shadow-lg`}>
+            <span className={`inline-block px-6 py-3 rounded-full text-sm font-bold ${darkMode ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-200'} shadow-lg`}>
               ✨ Available for Automation Projects
             </span>
           </div>
 
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-8 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent leading-tight tracking-tight">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-8 bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent leading-tight tracking-tight">
             AI Automation
             <br />
             <span className="text-5xl md:text-7xl lg:text-8xl">Engineer</span>
@@ -345,16 +345,16 @@ const Portfolio = () => {
           
           <p className={`text-xl md:text-2xl lg:text-3xl mb-12 ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-5xl mx-auto leading-relaxed font-light`}>
             Transforming business operations with intelligent AI-powered systems that deliver 
-            <span className="text-purple-500 font-bold"> 60% efficiency improvements</span>, process 
-            <span className="text-pink-500 font-bold"> 1000+ daily operations</span>, and save 
-            <span className="text-orange-500 font-bold"> 100+ hours weekly</span>
+            <span className="text-blue-500 font-bold"> 60% efficiency improvements</span>, process 
+            <span className="text-cyan-500 font-bold"> 1000+ daily operations</span>, and save 
+            <span className="text-teal-500 font-bold"> 100+ hours weekly</span>
           </p>
 
           {/* Rotating Stats */}
           <div className={`mb-16 max-w-4xl mx-auto ${darkMode ? 'bg-gray-800/70' : 'bg-white/70'} backdrop-blur-xl rounded-3xl p-10 shadow-2xl border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold flex items-center gap-3">
-                <TrendingUp className="w-6 h-6 text-purple-500" />
+                <TrendingUp className="w-6 h-6 text-blue-500" />
                 Live Impact Metrics
               </h3>
               <button 
@@ -365,7 +365,7 @@ const Portfolio = () => {
               </button>
             </div>
             <div className="text-center py-8">
-              <div className="text-6xl md:text-7xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+              <div className="text-6xl md:text-7xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-4">
                 {stats[currentStat].value}
               </div>
               <div className="text-2xl font-bold mb-2">{stats[currentStat].label}</div>
@@ -376,7 +376,7 @@ const Portfolio = () => {
                 <button
                   key={i}
                   onClick={() => setCurrentStat(i)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${i === currentStat ? 'w-12 bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg' : 'w-2.5 bg-gray-600'}`}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${i === currentStat ? 'w-12 bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg' : 'w-2.5 bg-gray-600'}`}
                 />
               ))}
             </div>
@@ -389,7 +389,7 @@ const Portfolio = () => {
                 key={i}
                 className={`${darkMode ? 'bg-gray-800/70' : 'bg-white/70'} backdrop-blur-xl rounded-2xl p-6 hover:scale-105 transition-all duration-300 border ${darkMode ? 'border-gray-700' : 'border-gray-200'} shadow-xl hover:shadow-2xl group`}
               >
-                <div className="text-purple-500 mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">{achievement.icon}</div>
+                <div className="text-blue-500 mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">{achievement.icon}</div>
                 <div className="text-xl font-bold mb-2">{achievement.title}</div>
                 <div className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{achievement.description}</div>
               </div>
@@ -399,19 +399,19 @@ const Portfolio = () => {
           <div className="flex flex-wrap justify-center gap-6">
             <button
               onClick={() => scrollToSection('projects')}
-              className="group px-10 py-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-xl"
+              className="group px-10 py-5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 shadow-xl"
             >
               Explore Projects
               <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className={`px-10 py-5 rounded-2xl font-bold text-lg border-2 ${darkMode ? 'border-purple-500 hover:bg-purple-500/10' : 'border-purple-600 hover:bg-purple-50'} transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105`}
+              className={`px-10 py-5 rounded-2xl font-bold text-lg border-2 ${darkMode ? 'border-blue-500 hover:bg-blue-500/10' : 'border-blue-600 hover:bg-blue-50'} transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105`}
             >
               Get In Touch
             </button>
             <button
-              onClick={() => window.open('mailto:muhammedhussain1214@gmail.com')}
+              onClick={() => window.open('https://drive.usercontent.google.com/u/0/uc?id=1a6aPqPwqnN0Jf9vGidbJ_Ygo1CrVzIiA&export=download', '_blank')}
               className={`px-10 py-5 rounded-2xl font-bold text-lg ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-200 hover:bg-gray-300'} transition-all duration-300 flex items-center gap-3 shadow-xl hover:shadow-2xl hover:scale-105`}
             >
               <Download className="w-6 h-6" />
@@ -429,11 +429,11 @@ const Portfolio = () => {
       <section id="projects" className="py-32 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <span className={`inline-block px-6 py-3 rounded-full text-sm font-bold mb-6 ${darkMode ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' : 'bg-purple-100 text-purple-700 border border-purple-200'} shadow-lg`}>
+            <span className={`inline-block px-6 py-3 rounded-full text-sm font-bold mb-6 ${darkMode ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'bg-blue-100 text-blue-700 border border-blue-200'} shadow-lg`}>
               💼 Portfolio Showcase
             </span>
             <h2 className="text-5xl md:text-7xl font-black mb-6">
-              Featured <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Projects</span>
+              Featured <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Projects</span>
             </h2>
             <p className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}>
               AI-powered automation systems delivering measurable business impact and transforming operations at scale
@@ -458,7 +458,7 @@ const Portfolio = () => {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-8 py-4 rounded-2xl capitalize transition-all font-bold text-base ${selectedCategory === cat ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-xl scale-105' : darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100 border border-gray-300'} shadow-lg hover:shadow-xl hover:scale-105`}
+                  className={`px-8 py-4 rounded-2xl capitalize transition-all font-bold text-base ${selectedCategory === cat ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-xl scale-105' : darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100 border border-gray-300'} shadow-lg hover:shadow-xl hover:scale-105`}
                 >
                   {cat === 'all' ? '🎯 All Projects' : cat}
                 </button>
@@ -478,8 +478,8 @@ const Portfolio = () => {
                   {project.icon}
                 </div>
 
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-purple-400 transition-colors">{project.title}</h3>
-                <p className={`text-sm font-bold ${darkMode ? 'text-purple-400' : 'text-purple-600'} mb-4 uppercase tracking-wider`}>{project.category}</p>
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">{project.title}</h3>
+                <p className={`text-sm font-bold ${darkMode ? 'text-blue-400' : 'text-blue-600'} mb-4 uppercase tracking-wider`}>{project.category}</p>
                 <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} mb-6 text-base leading-relaxed`}>{project.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -489,7 +489,7 @@ const Portfolio = () => {
                     </span>
                   ))}
                   {project.tech.length > 3 && (
-                    <span className={`text-xs px-3 py-2 rounded-xl font-bold ${darkMode ? 'bg-gray-700 text-purple-400' : 'bg-purple-100 text-purple-700'}`}>
+                    <span className={`text-xs px-3 py-2 rounded-xl font-bold ${darkMode ? 'bg-gray-700 text-blue-400' : 'bg-blue-100 text-blue-700'}`}>
                       +{project.tech.length - 3}
                     </span>
                   )}
@@ -505,8 +505,8 @@ const Portfolio = () => {
                 </div>
 
                 <div className={`flex items-center justify-between pt-6 border-t ${darkMode ? 'border-gray-700' : 'border-gray-300'} mt-auto`}>
-                  <span className="text-sm text-purple-400 font-bold">View Details</span>
-                  <ExternalLink className="w-5 h-5 text-purple-400 group-hover:translate-x-2 transition-transform duration-300" />
+                  <span className="text-sm text-blue-400 font-bold">View Details</span>
+                  <ExternalLink className="w-5 h-5 text-blue-400 group-hover:translate-x-2 transition-transform duration-300" />
                 </div>
               </div>
             ))}
@@ -519,7 +519,7 @@ const Portfolio = () => {
                 <p className={`text-xl font-bold mb-4 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>No projects found matching your criteria.</p>
                 <button 
                   onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}
-                  className="mt-6 px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl font-bold hover:shadow-2xl transition-all hover:scale-105"
+                  className="mt-6 px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl font-bold hover:shadow-2xl transition-all hover:scale-105"
                 >
                   Clear Filters
                 </button>
@@ -543,7 +543,7 @@ const Portfolio = () => {
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold">{selectedProject.title}</h3>
-                  <p className={`text-base font-bold ${darkMode ? 'text-purple-400' : 'text-purple-600'} uppercase tracking-wider`}>{selectedProject.category}</p>
+                  <p className={`text-base font-bold ${darkMode ? 'text-blue-400' : 'text-blue-600'} uppercase tracking-wider`}>{selectedProject.category}</p>
                 </div>
               </div>
               <button 
@@ -557,7 +557,7 @@ const Portfolio = () => {
             <div className="p-8 space-y-8">
               <div>
                 <h4 className="text-2xl font-bold mb-4 flex items-center gap-3">
-                  <Sparkles className="w-6 h-6 text-purple-500" />
+                  <Sparkles className="w-6 h-6 text-blue-500" />
                   Project Overview
                 </h4>
                 <p className={`text-lg leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>{selectedProject.fullDescription}</p>
@@ -569,7 +569,7 @@ const Portfolio = () => {
                   {selectedProject.metrics.map(metric => (
                     <div key={metric} className={`${darkMode ? 'bg-gray-700/50' : 'bg-gray-100'} rounded-2xl p-6`}>
                       <div className="flex items-center gap-3">
-                        <TrendingUp className="w-6 h-6 text-purple-500" />
+                        <TrendingUp className="w-6 h-6 text-blue-500" />
                         <span className="font-bold text-lg">{metric}</span>
                       </div>
                     </div>
@@ -594,7 +594,7 @@ const Portfolio = () => {
                 <div className="space-y-3">
                   {selectedProject.results.map((result, i) => (
                     <div key={i} className="flex items-center gap-4">
-                      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500" />
+                      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500" />
                       <span className={`text-base ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>{result}</span>
                     </div>
                   ))}
@@ -629,7 +629,7 @@ const Portfolio = () => {
               💻 Technical Arsenal
             </span>
             <h2 className="text-5xl md:text-7xl font-black mb-6">
-              Technical <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Expertise</span>
+              Technical <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Expertise</span>
             </h2>
             <p className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}>
               Specialized in AI integration, workflow automation, and building intelligent systems that scale
@@ -644,7 +644,7 @@ const Portfolio = () => {
               >
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-2xl font-bold">{skill.name}</span>
-                  <span className={`text-sm font-bold px-4 py-2 rounded-xl ${darkMode ? 'bg-purple-500/20 text-purple-300' : 'bg-purple-100 text-purple-700'}`}>
+                  <span className={`text-sm font-bold px-4 py-2 rounded-xl ${darkMode ? 'bg-blue-500/20 text-blue-300' : 'bg-blue-100 text-blue-700'}`}>
                     {skill.category}
                   </span>
                 </div>
@@ -652,13 +652,13 @@ const Portfolio = () => {
                 <div className="flex items-center gap-4">
                   <div className={`flex-1 h-4 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'} rounded-full overflow-hidden`}>
                     <div
-                      className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all duration-1000 relative overflow-hidden"
+                      className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full transition-all duration-1000 relative overflow-hidden"
                       style={{ width: `${skill.level}%` }}
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
                     </div>
                   </div>
-                  <span className="text-2xl font-black text-purple-500 min-w-[60px] text-right">{skill.level}%</span>
+                  <span className="text-2xl font-black text-blue-500 min-w-[60px] text-right">{skill.level}%</span>
                 </div>
               </div>
             ))}
@@ -674,7 +674,7 @@ const Portfolio = () => {
               ⭐ Client Success Stories
             </span>
             <h2 className="text-5xl md:text-7xl font-black mb-6">
-              What <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Clients Say</span>
+              What <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Clients Say</span>
             </h2>
             <p className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} leading-relaxed`}>
               Real results from real automation projects
@@ -711,7 +711,7 @@ const Portfolio = () => {
               📧 Get In Touch
             </span>
             <h2 className="text-5xl md:text-7xl font-black mb-6">
-              Let's <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Build Together</span>
+              Let's <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Build Together</span>
             </h2>
             <p className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}>
               Ready to automate your business processes? Let's discuss how AI automation can transform your operations and deliver measurable ROI.
@@ -723,7 +723,7 @@ const Portfolio = () => {
               href="mailto:muhammedhussain1214@gmail.com"
               className={`${darkMode ? 'bg-gray-800/70 hover:bg-gray-700' : 'bg-white/70 hover:bg-gray-50'} backdrop-blur-xl p-10 rounded-3xl transition-all hover:shadow-2xl hover:-translate-y-2 border ${darkMode ? 'border-gray-700' : 'border-gray-200'} group`}
             >
-              <Mail className="w-12 h-12 mx-auto mb-6 text-purple-500 group-hover:scale-110 transition-transform duration-300" />
+              <Mail className="w-12 h-12 mx-auto mb-6 text-blue-500 group-hover:scale-110 transition-transform duration-300" />
               <h3 className="font-bold text-2xl mb-3">Email</h3>
               <p className={`text-base ${darkMode ? 'text-gray-400' : 'text-gray-600'} break-words`}>muhammedhussain1214@gmail.com</p>
             </a>
@@ -732,13 +732,13 @@ const Portfolio = () => {
               href="tel:03036324000"
               className={`${darkMode ? 'bg-gray-800/70 hover:bg-gray-700' : 'bg-white/70 hover:bg-gray-50'} backdrop-blur-xl p-10 rounded-3xl transition-all hover:shadow-2xl hover:-translate-y-2 border ${darkMode ? 'border-gray-700' : 'border-gray-200'} group`}
             >
-              <Linkedin className="w-12 h-12 mx-auto mb-6 text-pink-500 group-hover:scale-110 transition-transform duration-300" />
+              <Linkedin className="w-12 h-12 mx-auto mb-6 text-cyan-500 group-hover:scale-110 transition-transform duration-300" />
               <h3 className="font-bold text-2xl mb-3">Phone</h3>
               <p className={`text-base ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>0303-6324000</p>
             </a>
 
             <div className={`${darkMode ? 'bg-gray-800/70' : 'bg-white/70'} backdrop-blur-xl p-10 rounded-3xl border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
-              <Github className="w-12 h-12 mx-auto mb-6 text-orange-500" />
+              <Github className="w-12 h-12 mx-auto mb-6 text-teal-500" />
               <h3 className="font-bold text-2xl mb-3">Location</h3>
               <p className={`text-base ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Bahawalpur, Pakistan</p>
               <p className={`text-sm ${darkMode ? 'text-gray-500' : 'text-gray-500'} mt-2`}>Remote-friendly</p>
@@ -749,22 +749,22 @@ const Portfolio = () => {
             <h3 className="text-4xl font-black mb-10 text-center">Quick Stats</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-3">3.67</div>
+                <div className="text-5xl font-black bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-3">3.67</div>
                 <div className={`text-base font-bold ${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-1`}>CGPA</div>
                 <div className={`text-sm ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>Cyber Security</div>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-black bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent mb-3">2+</div>
+                <div className="text-5xl font-black bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent mb-3">2+</div>
                 <div className={`text-base font-bold ${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-1`}>Years</div>
                 <div className={`text-sm ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>Professional Experience</div>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-black bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent mb-3">15+</div>
+                <div className="text-5xl font-black bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent mb-3">15+</div>
                 <div className={`text-base font-bold ${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-1`}>AI Systems</div>
                 <div className={`text-sm ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>Production Deployed</div>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-black bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-3">5</div>
+                <div className="text-5xl font-black bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent mb-3">5</div>
                 <div className={`text-base font-bold ${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-1`}>Team Members</div>
                 <div className={`text-sm ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>Led & Trained</div>
               </div>
@@ -778,11 +778,11 @@ const Portfolio = () => {
         <div className="max-w-7xl mx-auto px-6 py-20">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-4 mb-8">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center font-bold text-white text-3xl shadow-2xl">
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 via-cyan-500 to-teal-500 flex items-center justify-center font-bold text-white text-3xl shadow-2xl">
                 SH
               </div>
             </div>
-            <h3 className="text-4xl font-black mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h3 className="text-4xl font-black mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               Let's Build Something Amazing
             </h3>
             <p className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-3xl mx-auto mb-10 leading-relaxed`}>
@@ -794,13 +794,13 @@ const Portfolio = () => {
                 href="mailto:muhammedhussain1214@gmail.com"
                 className={`w-16 h-16 rounded-2xl ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100'} flex items-center justify-center transition-all hover:scale-110 shadow-xl border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
               >
-                <Mail className="w-7 h-7 text-purple-500" />
+                <Mail className="w-7 h-7 text-blue-500" />
               </a>
               <a 
                 href="tel:03036324000"
                 className={`w-16 h-16 rounded-2xl ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100'} flex items-center justify-center transition-all hover:scale-110 shadow-xl border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
               >
-                <Linkedin className="w-7 h-7 text-pink-500" />
+                <Linkedin className="w-7 h-7 text-cyan-500" />
               </a>
               <a 
                 href="https://github.com/syed-muhammed-hussain"
@@ -808,12 +808,12 @@ const Portfolio = () => {
                 rel="noopener noreferrer"
                 className={`w-16 h-16 rounded-2xl ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-100'} flex items-center justify-center transition-all hover:scale-110 shadow-xl border ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}
               >
-                <Github className="w-7 h-7 text-orange-500" />
+                <Github className="w-7 h-7 text-teal-500" />
               </a>
             </div>
           </div>
 
-          <div className={`h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent mb-10`} />
+          <div className={`h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent mb-10`} />
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex flex-col md:flex-row items-center gap-6">
@@ -821,21 +821,21 @@ const Portfolio = () => {
                 © 2024 Syed Muhammad Hussain
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
+                <div className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse" />
                 <span className={`text-base font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Available for Projects</span>
               </div>
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-6 text-base">
-              <button onClick={() => scrollToSection('home')} className={`${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'} transition-colors font-medium`}>
+              <button onClick={() => scrollToSection('home')} className={`${darkMode ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition-colors font-medium`}>
                 Home
               </button>
               <span className={darkMode ? 'text-gray-700' : 'text-gray-300'}>•</span>
-              <button onClick={() => scrollToSection('projects')} className={`${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'} transition-colors font-medium`}>
+              <button onClick={() => scrollToSection('projects')} className={`${darkMode ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition-colors font-medium`}>
                 Projects
               </button>
               <span className={darkMode ? 'text-gray-700' : 'text-gray-300'}>•</span>
-              <button onClick={() => scrollToSection('contact')} className={`${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'} transition-colors font-medium`}>
+              <button onClick={() => scrollToSection('contact')} className={`${darkMode ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'} transition-colors font-medium`}>
                 Contact
               </button>
             </div>
