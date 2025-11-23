@@ -265,8 +265,8 @@ const Portfolio = () => {
                 <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-gray-900 animate-pulse" />
               </div>
               <div>
-                <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Syed Hussain</span>
-                <p className={`text-xs font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Automation Engineer</p>
+                <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Syed Muhammad Hussain</span>
+                <p className={`text-xs font-medium ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>Automation Expert</p>
               </div>
             </div>
 
@@ -411,7 +411,7 @@ const Portfolio = () => {
               Get In Touch
             </button>
             <button
-              onClick={() => window.open('https://drive.usercontent.google.com/u/0/uc?id=1a6aPqPwqnN0Jf9vGidbJ_Ygo1CrVzIiA&export=download', '_blank')}
+              onClick={() => window.open('https://drive.usercontent.google.com/u/0/uc?id=1-tUcihuoVvIBm1Celf0MjGZmyIgtBZOI&export=download', '_blank')}
               className={`px-10 py-5 rounded-2xl font-bold text-lg ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-200 hover:bg-gray-300'} transition-all duration-300 flex items-center gap-3 shadow-xl hover:shadow-2xl hover:scale-105`}
             >
               <Download className="w-6 h-6" />
